@@ -1,251 +1,147 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Memetopio × Fintopio — Meme-Powered CeDeFi 🚀</title>
-
-  <!-- Tailwind (play CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            space:{900:'#0a0a1e',800:'#13132a',700:'#20203b'},
-            neon :{cyan:'#00ffe7',yellow:'#ffd700',pink:'#ff00c8',green:'#00ffae'}
-          },
-          fontFamily:{
-            display:['Montserrat','sans-serif'],
-            meme  :['Impact','sans-serif']
-          },
-          boxShadow:{
-            neon  :'0 0 30px rgba(0,255,231,.7)',
-            yellow:'0 0 30px rgba(255,215,0,.7)',
-            pink  :'0 0 30px rgba(255,0,200,.7)',
-            green :'0 0 30px rgba(0,255,174,.7)'
-          },
-          keyframes:{
-            scroll:{from:{transform:'translateX(0)'} ,to:{transform:'translateX(-100%)'}}
-          },
-          animation:{
-            scroll:'scroll 50s linear infinite'
-          }
-        }
-      }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<title>Memetopio × Fintopio — Pure-Emoji CeDeFi 🚀</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        space: { 900: '#0a0a1e', 800: '#13132a' },
+        neon:  { cyan: '#00ffe7', pink: '#ff00c8', yellow: '#ffd700', green: '#00ffae' }
+      },
+      fontFamily: { meme: ['Impact', 'sans-serif'] }
     }
-  </script>
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
-
-  <!-- Icons -->
-  <script src="https://kit.fontawesome.com/a6a43e5c9e.js" crossorigin="anonymous"></script>
-
-  <meta name="description" content="Memetopio — meme-grade frontend for Fintopio CeDeFi wallet. Wallet? Nah. Meme-Rocket.">
-
-  <style>
-    /* BG + stars */
-    body::before{content:'';position:fixed;inset:0;z:-2;background:linear-gradient(45deg,#2e0154,#001b5e,#005a8d,#00a482,#7effa0,#ffd700,#ff00c8);background-size:400% 400%;animation:bg 60s ease infinite;opacity:.12}
-    @keyframes bg{0%{background-position:0 0}50%{background-position:100% 100%}100%{background-position:0 0}}
-    body::after{content:'';position:fixed;inset:0;z:-1;background:radial-gradient(circle,#fff 1px,transparent 1px) 0 0/3px 3px;animation:star 150s linear infinite;opacity:.15}
-    @keyframes star{from{background-position:0 0}to{background-position:1000px 1000px}}
-
-    .asteroid{position:absolute;pointer-events:none;will-change:transform;opacity:.85}
-
-    /* glitch logo */
-    .glitch{position:relative;color:#00ffe7}
-    .glitch::before,.glitch::after{content:attr(data-text);position:absolute;left:0;top:0;width:100%;clip:rect(0,999px,0,0)}
-    .glitch::before{left:2px;text-shadow:-2px 0 #ff00c8;animation:glitch 2.5s infinite}
-    .glitch::after {left:-2px;text-shadow:2px 0 #ffd700;animation:glitch 2s   infinite}
-    @keyframes glitch{
-      0%{clip:rect(0,999px,0,0)}20%{clip:rect(40px,999px,80px,0)}
-      40%{clip:rect(10px,999px,60px,0)}60%{clip:rect(70px,999px,120px,0)}
-      80%{clip:rect(30px,999px,90px,0)}100%{clip:rect(0,999px,0,0)}
-    }
-
-    /* marquee style */
-    .marquee{white-space:nowrap;overflow:hidden}
-    .marquee img{display:inline-block;width:180px;height:120px;object-fit:cover;margin-right:20px;border-radius:12px;box-shadow:0 0 15px rgba(0,0,0,.5)}
-  </style>
+  }
+};
+</script>
+<style>
+body::before{content:'';position:fixed;inset:0;z:-2;background:linear-gradient(130deg,#ff00c8,#00ffe7,#ffd700,#00ffae);background-size:400% 400%;animation:bg 30s ease infinite;opacity:.12}
+@keyframes bg{0%{background-position:0 0}50%{background-position:100% 100%}100%{background-position:0 0}}
+body::after{content:'';position:fixed;inset:0;z:-1;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="3" height="3"><rect width="1" height="1" fill="%23ffffff30"/></svg>');opacity:.07}
+.astro{position:absolute;font-size:2.5rem;animation:float 18s linear infinite}
+@keyframes float{from{transform:translateY(-120vh) rotate(0)}to{transform:translateY(120vh) rotate(360deg)}}
+.marquee{overflow:hidden;white-space:nowrap;font-size:2rem;color:#ffd700;text-shadow:0 0 10px #ff00c8;animation:scroll 25s linear infinite}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.card{background:#20203b;border-radius:1.25rem;padding:2rem;transition:.25s;box-shadow:0 0 20px #00ffe770}
+.card:hover{transform:translateY(-6px) rotate(-1deg)}
+.phonebox{filter:drop-shadow(0 0 8px #00ffe7);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{filter:drop-shadow(0 0 8px #00ffe7)}50%{filter:drop-shadow(0 0 16px #ff00c8)}}
+details{transition:all .3s ease;border-radius:1rem;overflow:hidden}
+details[open]{box-shadow:0 0 12px #00ffaeaa}
+details summary{cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+details summary::after{content:'▸';transition:transform .3s}
+details[open] summary::after{transform:rotate(90deg)}
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:.5rem;top:0;width:4px;height:100%;background:#333;border-radius:2px}
+.step{position:relative;padding-left:1.5rem;margin-bottom:2rem}
+.step::before{content:'';position:absolute;left:-.9rem;top:.25rem;width:1rem;height:1rem;border-radius:50%;background:#333;transition:.4s}
+.step.done::before{background:#00ffe7;box-shadow:0 0 8px #00ffe7}
+.step.done span{color:#00ffe7}
+#console{position:fixed;inset:0;background:#000d;color:#0f0;font-family:monospace;padding:20px;overflow:auto;display:none;z-index:59}
+.blink{animation:blink 1s steps(2) infinite}@keyframes blink{50%{opacity:0}}
+#loot{opacity:.12;transition:.3s;cursor:pointer;z-index:60;position:absolute;bottom:0.5rem;right:1rem}
+#loot:hover{opacity:1;transform:scale(1.1);text-shadow:0 0 10px #ff00c8}
+</style>
 </head>
 
-<body class="bg-space-900 text-white font-display overflow-x-hidden relative">
+<body class="bg-space-900 text-white font-display overflow-x-hidden">
+<div class="astro" style="left:12%;animation-duration:22s">🪐</div>
+<div class="astro" style="left:78%;animation-duration:26s;animation-delay:-6s">☄️</div>
 
-  <!-- decorative asteroids -->
-  <img src="https://cdn.jsdelivr.net/gh/erkang/tinyassets@main/asteroid1.png" class="asteroid w-24 md:w-32 top-16 left-[6%]" data-speed="0.12" alt>
-  <img src="https://cdn.jsdelivr.net/gh/erkang/tinyassets@main/asteroid2.png" class="asteroid w-16 md:w-24 top-[70vh] right-[12%]" data-speed="0.26" alt>
-  <img src="https://cdn.jsdelivr.net/gh/erkang/tinyassets@main/asteroid3.png" class="asteroid w-20 md:w-28 top-[150vh] left-[14%]"data-speed="0.18" alt>
-
-  <!-- Preloader -->
-  <div id="preloader" class="fixed inset-0 z-[999] flex flex-col items-center justify-center gap-6 bg-space-900 text-center">
-    <h1 id="preText" class="text-4xl md:text-6xl font-extrabold"></h1>
-    <div class="w-14 h-14 border-4 border-neon-cyan border-t-transparent rounded-full animate-spin"></div>
-    <p class="text-neon-yellow text-lg">Booting Fintopio meme-drive…</p>
+<header class="fixed top-0 inset-x-0 z-40 backdrop-blur bg-space-800/70 border-b border-space-700">
+  <div class="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
+    <span class="font-meme text-neon-cyan text-2xl">Memetopio</span>
+    <nav class="hidden md:flex gap-6 text-sm">
+      <a href="#features" class="hover:text-neon-pink">Features</a>
+      <a href="#roadmap"  class="hover:text-neon-pink">Roadmap</a>
+      <a href="#faq"      class="hover:text-neon-pink">FAQ</a>
+    </nav>
+    <a href="https://fintopio.com" target="_blank" class="hidden md:inline-block bg-neon-pink px-4 py-1.5 rounded-full font-bold text-space-900 shadow">Get the App</a>
   </div>
+</header>
 
-  <!-- Navbar -->
-  <header class="fixed top-0 left-0 w-full z-50 backdrop-blur bg-space-900/70 border-b border-space-700">
-    <div class="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
-      <span class="glitch text-xl md:text-2xl font-bold" data-text="Memetopio">Memetopio</span>
-      <nav class="hidden md:flex gap-8 font-medium">
-        <a href="#platforms" class="hover:text-neon-cyan">Platforms</a>
-        <a href="#features"  class="hover:text-neon-cyan">Features</a>
-        <a href="#roadmap"   class="hover:text-neon-cyan">Roadmap</a>
-        <a href="#faq"       class="hover:text-neon-cyan">FAQ</a>
-      </nav>
-      <a href="#cta" class="hidden md:inline-block bg-neon-pink text-space-900 font-bold px-6 py-2 rounded-full shadow-pink hover:scale-105 transition">Get Fintopio</a>
-    </div>
-  </header>
+<section class="min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24">
+  <h1 class="font-meme text-6xl md:text-7xl text-neon-cyan drop-shadow-lg">Wallet? <span class="text-neon-pink">Nah.</span><br/>MEME-ROCKET.</h1>
+  <p class="mt-6 text-xl md:text-2xl text-neon-yellow max-w-2xl">Powered by <b>Fintopio</b>: CeFi comfort × DeFi degen — no gas, just 🚀 vibes.</p>
+  <pre class="phonebox mt-14 text-left text-base leading-none font-mono select-none">
+┌──────────────────┐
+│ 99 099.42 $PEPE  │
+│                  │
+│  🐸  SEND  RECV  │
+│──────────────────│
+│  💎  STAKE NOW   │
+│  💰  CASH BACK   │
+└──────────────────┘</pre>
+  <div class="marquee mt-16 py-4 select-none">🚀 😂 🔥 💎 🙌 🐸 🤝 🚀 😂 🔥 💎 🙌 🐸 🤝 🚀 😂 🔥 💎 🙌 🐸 🤝</div>
+</section>
 
-  <!-- HERO -->
-  <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center px-4 pt-28">
-    <h2 class="text-5xl md:text-7xl font-black text-neon-cyan mb-4 font-meme">
-      Wallet? <span class="text-neon-pink">Nah.</span> MEME-ROCKET.
-    </h2>
-    <p class="max-w-2xl text-neon-yellow/90 text-xl md:text-2xl">
-      Powered by <b>Fintopio</b>: CeFi comfort meets DeFi degen — now with 200 % more memes.
-    </p>
+<section id="features" class="py-24 bg-space-800">
+  <h2 class="text-5xl font-black text-center mb-12">Why so <span class="text-neon-green">OP</span>?</h2>
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+    <div class="card">💸 <h3 class="text-xl font-bold mb-2 inline">Zero-Fee CeFi</h3><p>Send via @username, instant 0 %.</p></div>
+    <div class="card">🔑 <h3 class="text-xl font-bold mb-2 inline">Self-Custody DeFi</h3><p>You own the keys, frens.</p></div>
+    <div class="card">🎁 <h3 class="text-xl font-bold mb-2 inline">Voucher & Gifts</h3><p>Mint meme-cards for pals.</p></div>
+    <div class="card">💎 <h3 class="text-xl font-bold mb-2 inline">Staking & Yield</h3><p>Farm juicy APY in-app.</p></div>
+    <div class="card">🛡️ <h3 class="text-xl font-bold mb-2 inline">Battle-Proof Security</h3><p>Multi-layer encryption.</p></div>
+    <div class="card">🎮 <h3 class="text-xl font-bold mb-2 inline">Web3 Gaming Hub</h3><p>One tap → P2E GG.</p></div>
+  </div>
+</section>
 
-    <div class="relative mt-14">
-      <img id="phoneImg" src="https://picsum.photos/seed/crypto/500/900"
-           class="w-72 md:w-96 rounded-3xl shadow-neon shadow-2xl rotate-2" alt>
-      <button id="modeToggle"
-              class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-neon-yellow text-space-900 font-bold px-8 py-3 rounded-full shadow-yellow hover:scale-105 transition">
-        Enter Degen Mode
-      </button>
-    </div>
+<section id="roadmap" class="py-24 bg-space-900 px-6">
+  <h2 class="text-4xl font-extrabold text-center mb-14">Roadmap 2025 🌕</h2>
+  <div class="timeline max-w-md mx-auto">
+    <div class="step"><span>Q1 — Public beta (Mini-App + Web)</span></div>
+    <div class="step"><span>Q2 — Yield engine & NFT gallery</span></div>
+    <div class="step"><span>Q3 — CeFi Pay (fiat + card)</span></div>
+    <div class="step"><span>Q4 — DAO token & governance</span></div>
+  </div>
+</section>
 
-    <div class="marquee w-full mt-24 py-8 bg-space-800/60">
-      <div id="marqueeInner" class="inline-block animate-scroll"></div>
-    </div>
-  </section>
+<section id="faq" class="py-24 bg-space-800 px-6">
+  <h2 class="text-4xl font-extrabold text-center mb-10">FAQ</h2>
+  <details class="max-w-2xl mx-auto bg-space-700 mb-4 p-6"><summary class="font-bold">Is it free?</summary><p class="mt-3">CeFi = 0 %. Pay network gas only when you go full DeFi.</p></details>
+  <details class="max-w-2xl mx-auto bg-space-700 mb-4 p-6"><summary class="font-bold">Where are my keys?</summary><p class="mt-3">Client-side encryption — private key never leaves your device.</p></details>
+  <details class="max-w-2xl mx-auto bg-space-700 p-6"><summary class="font-bold">Supported chains?</summary><p class="mt-3">EVM L2s, Solana, TON — Bitcoin (LN) soon.</p></details>
+</section>
 
-  <!-- PLATFORMS -->
-  <section id="platforms" class="min-h-screen flex flex-col items-center justify-center text-center px-4 bg-space-800">
-    <h2 class="text-4xl md:text-6xl font-extrabold mb-4">
-      <span class="text-neon-pink">Any Device.</span> Same Meme Energy.
-    </h2>
-    <p class="max-w-2xl text-neon-cyan/90 text-lg md:text-2xl">Web • iOS • Android • Telegram Mini-App</p>
-    <div class="flex flex-wrap justify-center gap-10 mt-16" id="platformWrapper"></div>
-  </section>
+<section id="cta" class="py-24 bg-space-900 text-center">
+  <h2 class="text-5xl font-extrabold mb-6">Ready to degen 🚀?</h2>
+  <p class="mb-10 text-xl text-gray-300">Download Fintopio & join the meme-cosmos.</p>
+  <a href="https://fintopio.com" target="_blank" class="bg-neon-cyan text-space-900 font-bold px-10 py-4 rounded-full shadow hover:scale-110 transition">Get the App</a>
+</section>
 
-  <!-- FEATURES -->
-  <section id="features" class="py-24 px-6 bg-space-700">
-    <div class="max-w-7xl mx-auto text-center">
-      <h2 class="text-5xl font-black mb-6">Superpowers <span class="text-neon-green">+</span> Silly Memes</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-12" id="featureGrid"></div>
-    </div>
-  </section>
+<footer class="py-8 bg-space-800 text-center text-gray-400 relative">
+  © 2025 Memetopio / Fintopio — built with 🤡 + 💎.
+  <span id="loot">Залутать сучку</span>
+</footer>
 
-  <!-- ROADMAP -->
-  <section id="roadmap" class="py-24 px-6 bg-space-800 text-center">
-    <h2 class="text-5xl font-extrabold mb-10">Roadmap to the Moon 🌕</h2>
-    <div class="max-w-4xl mx-auto grid gap-10 md:grid-cols-2" id="roadmapGrid"></div>
-  </section>
+<div id="console"></div>
 
-  <!-- FAQ -->
-  <section id="faq" class="py-24 px-6 bg-space-700">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-5xl font-black text-center mb-12">FAQ</h2>
-      <div id="faqList" class="space-y-6"></div>
-    </div>
-  </section>
+<script>
+/* timeline reveal */
+const observer=new IntersectionObserver(e=>e.forEach(x=>x.isIntersecting&&x.target.classList.add('done')), {threshold:.4});
+document.querySelectorAll('.step').forEach(s=>observer.observe(s));
 
-  <!-- CTA -->
-  <section id="cta" class="py-24 px-6 bg-space-800 text-center">
-    <h2 class="text-5xl font-extrabold mb-6">Ready to Meme the Dream?</h2>
-    <p class="max-w-xl mx-auto text-xl text-gray-300 mb-10">
-      Install Fintopio & flex like it’s 2069.
-    </p>
-    <div class="flex flex-wrap justify-center gap-6">
-      <a href="#" class="bg-neon-cyan text-space-900 font-bold py-3 px-8 rounded-full shadow-neon hover:scale-110 transition">iOS</a>
-      <a href="#" class="bg-neon-yellow text-space-900 font-bold py-3 px-8 rounded-full shadow-yellow hover:scale-110 transition">Android</a>
-      <a href="#" class="bg-neon-pink text-space-900 font-bold py-3 px-8 rounded-full shadow-pink hover:scale-110 transition">Mini-App</a>
-    </div>
-  </section>
+/* FAQ fallback for old browsers */
+document.querySelectorAll('#faq details').forEach(d=>{
+  if(typeof d.open==='undefined'){const s=d.querySelector('summary');const wrap=document.createElement('div');wrap.innerHTML=d.innerHTML.split('</summary>')[1];wrap.style.display='none';d.innerHTML='';d.appendChild(s);d.appendChild(wrap);s.onclick=()=>wrap.style.display=wrap.style.display==='none'?'block':'none';}
+});
 
-  <!-- FOOTER -->
-  <footer class="py-10 bg-space-700 text-center text-gray-400">
-    <p>© 2025 Memetopio / Fintopio. Built with 💜 & memes.</p>
-  </footer>
-
-  <!-- DATA + GSAP -->
-  <script>
-    /* Images & text data */
-    const memes=[
-      'https://i.imgur.com/8KQxX.gif','https://i.imgur.com/JX5tH.gif',
-      'https://i.imgur.com/jXtqILX.jpeg','https://i.imgur.com/BZ5qv0x.jpeg',
-      'https://i.imgur.com/1iD5Esv.jpeg','https://i.imgur.com/89m3VPl.jpeg'
-    ];
-    const platforms=['code,website','iphone,crypto','android,app','telegram,chat'];
-    const features=[
-      {icon:'fa-hand-holding-dollar',color:'neon',  title:'Zero-Fee CeFi',          desc:'Transfers via username, no gas.'},
-      {icon:'fa-key',                color:'yellow',title:'Self-Custody DeFi',      desc:'You hold the keys.'},
-      {icon:'fa-shield-halved',      color:'pink',  title:'Battle-Tested Security', desc:'Multi-layer encryption.'},
-      {icon:'fa-gift',               color:'neon',  title:'Crypto Gifts',           desc:'Stylish vouchers & stickers.'},
-      {icon:'fa-coins',              color:'yellow',title:'Staking & Yield',        desc:'Farm APY in-app.'},
-      {icon:'fa-gamepad',            color:'pink',  title:'Web3 Gaming Hub',        desc:'P2E one tap away.'}
-    ];
-    const roadmap=[
-      {q:'Q1 — Launch',      c:'neon',   t:'Public beta (Mini-App & Web).'},
-      {q:'Q2 — Yield+NFTs',  c:'yellow', t:'Staking pools, NFT gallery.'},
-      {q:'Q3 — CeFi Pay',    c:'pink',   t:'Debit card & fiat on-ramp.'},
-      {q:'Q4 — DAO + Gov',   c:'green',  t:'Token rollout & treasury.'}
-    ];
-    const faqs=[
-      {q:'Is Memetopio free?',     a:'0 % inside CeFi. Only L1 gas in DeFi.'},
-      {q:'Where are keys stored?', a:'Client-side encryption — keys never leave device.'},
-      {q:'Supported chains?',     a:'EVM L2s, Solana, TON; Bitcoin soon.'}
-    ];
-
-    /* Populate DOM */
-    window.addEventListener('DOMContentLoaded',()=>{
-      /* preloader typing */
-      gsap.registerPlugin(TextPlugin);
-      gsap.to('#preText',{text:'Yeah, another wallet…',duration:2.8,ease:'power1.inOut'});
-
-      /* marquee */
-      const m=document.getElementById('marqueeInner');
-      memes.concat(memes).forEach(src=>{
-        const img=new Image();img.src=src;m.appendChild(img);
-      });
-
-      /* platforms */
-      const pW=document.getElementById('platformWrapper');
-      platforms.forEach(q=>{
-        const img=new Image();
-        img.src=`https://picsum.photos/seed/${encodeURIComponent(q)}/320/480`;
-        img.className='rounded-xl shadow-neon w-40 md:w-52 hover:rotate-2 transition';
-        pW.appendChild(img);
-      });
-
-      /* features */
-      const fG=document.getElementById('featureGrid');
-      features.forEach(f=>{
-        const div=document.createElement('div');
-        div.className=`bg-space-800 rounded-3xl p-10 shadow-${f.color} hover:scale-105 transition`;
-        div.innerHTML=`<i class=\"fa-solid ${f.icon} fa-2x text-neon-${f.color} mb-4\"></i>
-                        <h3 class=\"font-bold text-2xl mb-2\">${f.title}</h3>
-                        <p class=\"text-gray-300\">${f.desc}</p>`;
-        fG.appendChild(div);
-      });
-
-      /* roadmap */
-      const rG=document.getElementById('roadmapGrid');
-      roadmap.forEach(r=>{
-        const div=document.createElement('div');
-        div.className=`bg-space-700 rounded-3xl p-8 shadow-${r.c}`;
-        div.innerHTML=`<h3 class=\"text-neon-${r.c} font-bold text-xl mb-2\">${r.q}</h3>
-                       <p class=\"text-gray-300\">${r.t}</p>`;
-        rG.appendChild(div);
-      });
-
-      /* FAQ */
-      const faq=document.getElementById('faqList');
-      faqs.forEach((f,i)=>{
-        const d=document.createElement('details');
-        d.className=`bg-space-800 rounded-xl p-6 shadow-${['neon','yellow','pink'][i%3]} open:shadow-neon transition`;
-        d.innerHTML=`<summary class=\"cursor-pointer text
+/* hacker console */
+const loot=document.getElementById('loot'),consoleBox=document.getElementById('console');
+loot.onmouseenter=()=>loot.style.opacity=1;loot.onmouseleave=()=>loot.style.opacity=.12;
+loot.onclick=()=>{consoleBox.style.display='block';runHack();};
+function runHack(){
+ const lines=['root@fintopio:~$ ./meme_hack','mining rare pepe…','legendary $PEPE found! 🐸','','Press ENTER to claim >'];
+ let i=0,out='';(function type(){if(i>=lines.length){blink();return;}let j=0;const l=lines[i++];
+  const int=setInterval(()=>{out+=l[j++]||'';consoleBox.innerHTML=out+'<br><span class=\"blink\">_</span>';if(j>=l.length){clearInterval(int);out+='<br>';setTimeout(type,200);}},20);})();
+}
+function blink(){setInterval(()=>{const c=document.querySelector('.blink');if(c)c.style.opacity=c.style.opacity==0?1:0;},500);}
+document.onkeydown=e=>{if(consoleBox.style.display==='block'&&e.key==='Enter'){consoleBox.innerHTML+='🐸 PEPE CLAIMED!<br>ESC to exit';}if(e.key==='Escape')consoleBox.style.display='none';};
+</script>
+</body>
+</html>
